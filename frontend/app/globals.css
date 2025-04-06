@@ -1,0 +1,7 @@
+@import "tailwindcss";
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+body {
+  background-color: #fffdf9;
+}
