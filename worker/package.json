@@ -3,15 +3,26 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+     "dev": "tsc -b && node dist/index.js"
   },
+  "prisma": {
+  "seed": "ts-node prisma/seed.ts"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
+  
   "description": "",
   "dependencies": {
+    "@prisma/client": "^6.5.0",
+    "@solana/web3.js": "^1.98.0",
+    "@types/bs58": "^4.0.4",
+    "@types/nodemailer": "^6.4.17",
+    "bs58": "^6.0.0",
+    "dotenv": "^16.4.7",
     "kafka": "^0.2.3",
     "kafkajs": "^2.2.4",
+    "nodemailer": "^6.10.0",
     "prisma": "^6.5.0"
   }
 }

@@ -32,13 +32,12 @@ model Zap {
 }
 
 model Trigger {
-  id        String @id @default(uuid())
-  zapId     String @unique
+  id        String           @id @default(uuid())
+  zapId     String           @unique
   triggerId String
-
-  metadata Json             @default("{}")
-  type     AvailableTrigger @relation(fields: [triggerId], references: [id])
-  zap      Zap              @relation(fields: [zapId], references: [id])
+  metadata  Json             @default("{}")
+  type      AvailableTrigger @relation(fields: [triggerId], references: [id])
+  zap       Zap              @relation(fields: [zapId], references: [id])
 }
 
 model Action {
@@ -51,18 +50,18 @@ model Action {
   sortingOrder Int             @default(0)
 }
 
-model AvailableTrigger {
-  id       String    @id @default(uuid())
-  name     String
-  image    String
-  triggers Trigger[]
-}
-
 model AvailableAction {
   id      String   @id @default(uuid())
   name    String
   image   String
   actions Action[]
+}
+
+model AvailableTrigger {
+  id       String    @id @default(uuid())
+  name     String
+  image    String
+  triggers Trigger[]
 }
 
 model ZapRun {
@@ -76,5 +75,5 @@ model ZapRun {
 model ZapRunOutbox {
   id       String @id @default(uuid())
   zapRunId String @unique
-  ZapRun   ZapRun @relation(fields: [zapRunId], references: [id])
+  zapRun   ZapRun @relation(fields: [zapRunId], references: [id])
 }
